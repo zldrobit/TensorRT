@@ -124,7 +124,6 @@ int BatchedNMSPlugin::enqueue(const PluginTensorDesc* inputDesc, const PluginTen
     void* nmsedScores = outputs[2];
     void* nmsedClasses = outputs[3];
 
-    mClipBoxes = false;
     pluginStatus_t status = nmsInference(stream, inputDesc[0].dims.d[0], boxesSize, scoresSize, param.shareLocation,
         param.backgroundLabelId, numPriors, param.numClasses, param.topK, param.keepTopK, param.scoreThreshold,
         param.iouThreshold, DataType::kFLOAT, locData, DataType::kFLOAT, confData, keepCount, nmsedBoxes, nmsedScores,
